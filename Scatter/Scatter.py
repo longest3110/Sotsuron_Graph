@@ -3,11 +3,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 data = pd.read_csv("data.csv")
+columns = list(data.columns)
 
-# 乱数を生成
-x = np.random.rand(100)
-y = np.random.rand(100)
- 
-# 散布図を描画
-plt.scatter(x, y)
-plt.savefig('figure.png')
+y = np.array(data['time_ave'])
+for c in columns:
+	fig = plt.figure(c)
+	x = np.array(data[c])
+	plt.scatter(x, y)
+	fig.savefig('graph/{0}.png'.format(c))
+
