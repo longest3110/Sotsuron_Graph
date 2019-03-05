@@ -50,7 +50,17 @@ height = np.array([loop_data[0][0], no_loop_data[0][0]])
 plt.bar(left, height, tick_label=label, align="center", width=0.5)
 plt.xlabel("有向閉路グラフを含む")
 plt.ylabel("解答時間 [秒]")
-fig.savefig('test.png')
+fig.savefig('time.png')
+
+
+fig = plt.figure("respondent")
+left = np.array([1, 2])
+label = ["含む", "含まない"]
+height = np.array([loop_data[0][1], no_loop_data[0][1]])
+plt.bar(left, height, tick_label=label, align="center", width=0.5)
+plt.xlabel("有向閉路グラフを含む")
+plt.ylabel("完答率 [%]")
+fig.savefig('respondent.png')
 
 analyzed_connection.commit()
 analyzed_connection.close()
