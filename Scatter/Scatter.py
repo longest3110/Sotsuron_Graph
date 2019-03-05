@@ -18,6 +18,6 @@ for c in columns:
 	popt, pcov = curve_fit(func, x, y)
 
 	plt.scatter(x, y)
-	plt.plot(x2, func(x2, *popt))
+	plt.plot(x2, func(x2, *popt), color='black')
 
 	fig.savefig('graph/{0}.png'.format(c))
