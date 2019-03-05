@@ -15,7 +15,7 @@ for c in columns:
 	y2 = np.poly1d(res)(x2)
 
 	plt.scatter(x, y)
-	plt.plot(x2, y2)
+	plt.plot(x2, y2, color='black')
 
-	fig.savefig('graph/{0}.png'.format(c))
+	fig.savefig('graph/Secondary_Curve/{0}.png'.format(c))
 

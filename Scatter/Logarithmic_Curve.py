@@ -20,4 +20,4 @@ for c in columns:
 	plt.scatter(x, y)
 	plt.plot(x2, func(x2, *popt), color='black')
 
-	fig.savefig('graph/{0}.png'.format(c))
+	fig.savefig('graph/Logarithmic_Curve/{0}.png'.format(c))
