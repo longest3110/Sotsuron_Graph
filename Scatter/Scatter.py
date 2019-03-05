@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+data = pd.read_csv("data.csv")
+
 # 乱数を生成
 x = np.random.rand(100)
 y = np.random.rand(100)
