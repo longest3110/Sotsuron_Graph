@@ -43,15 +43,14 @@ order by level asc, stage asc
 no_loop_data = np.array(tuple(analyzed_cursor.execute(quely)))
 print(no_loop_data)
 
-
-
-fig = plt.figure("test")
-left = np.array([1, 2, 3, 4, 5])
-height = np.array([100, 200, 300, 400, 500])
-plt.bar(left, height, align="center")
-
+fig = plt.figure("time")
+left = np.array([1, 2])
+label = ["含む", "含まない"]
+height = np.array([loop_data[0][0], no_loop_data[0][0]])
+plt.bar(left, height, tick_label=label, align="center", width=0.5)
+plt.xlabel("有向閉路グラフを含む")
+plt.ylabel("解答時間 [秒]")
 fig.savefig('test.png')
-
 
 analyzed_connection.commit()
 analyzed_connection.close()
