@@ -56,7 +56,7 @@ fig.savefig('time_loop.png')
 fig = plt.figure("respondent")
 left = np.array([0.5, 1, 2, 2.5])
 label = ["", "含む", "含まない", ""]
-height = np.array([0, loop_data[0][1], no_loop_data[0][1], 0])
+height = np.array([0, loop_data[0][1]*100, no_loop_data[0][1]*100, 0])
 plt.bar(left, height, tick_label=label, align="center", width=0.7)
 plt.xlabel("全域サイクルを含む")
 plt.ylabel("平均完答率 [%]")
