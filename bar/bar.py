@@ -13,7 +13,7 @@ left join analyze_subject on analyze_subject.exercise_id = exercise.id
 left join respondent_master on respondent_master.exercise_id = exercise.id
 left join time_master on time_master.exercise_id = exercise.id
 where respondent_master.respondent > 0
-and analyze_subject.answer > 5
+and analyze_subject.is_first != ''
 and analyze_subject.exercise_id != 23
 and analyze_subject.exercise_id != 24
 and analyze_subject.exercise_id != 29
@@ -32,7 +32,7 @@ left join analyze_subject on analyze_subject.exercise_id = exercise.id
 left join respondent_master on respondent_master.exercise_id = exercise.id
 left join time_master on time_master.exercise_id = exercise.id
 where respondent_master.respondent > 0
-and analyze_subject.answer < 6
+and analyze_subject.is_first = ''
 and analyze_subject.exercise_id != 23
 and analyze_subject.exercise_id != 24
 and analyze_subject.exercise_id != 29
@@ -45,22 +45,22 @@ print(no_loop_data)
 
 fig = plt.figure("time")
 left = np.array([0.5, 1, 2, 2.5])
-label = ["", "含む", "含まない", ""]
+label = ["", "している", "していない", ""]
 height = np.array([0, loop_data[0][0], no_loop_data[0][0], 0])
 plt.bar(left, height, tick_label=label, align="center", width=0.7)
-plt.xlabel("全域サイクルを含む")
+plt.xlabel("最初が確定")
 plt.ylabel("平均解答時間 [秒]")
-fig.savefig('time_loop.png')
+fig.savefig('time_is_first.png')
 
 
 fig = plt.figure("respondent")
 left = np.array([0.5, 1, 2, 2.5])
-label = ["", "含む", "含まない", ""]
+label = ["", "している", "していない", ""]
 height = np.array([0, loop_data[0][1]*100, no_loop_data[0][1]*100, 0])
 plt.bar(left, height, tick_label=label, align="center", width=0.7)
-plt.xlabel("全域サイクルを含む")
+plt.xlabel("最初が確定")
 plt.ylabel("平均完答率 [%]")
-fig.savefig('respondent_loop.png')
+fig.savefig('respondent_is_first.png')
 
 analyzed_connection.commit()
 analyzed_connection.close()
