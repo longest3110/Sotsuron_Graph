@@ -48,7 +48,7 @@ left = np.array([0.5, 1, 2, 2.5])
 label = ["", "含む", "含まない", ""]
 height = np.array([0, loop_data[0][0], no_loop_data[0][0], 0])
 plt.bar(left, height, tick_label=label, align="center", width=0.7)
-plt.xlabel("有向閉路グラフを含む")
+plt.xlabel("全域サイクルを含む")
 plt.ylabel("平均解答時間 [秒]")
 fig.savefig('time_loop.png')
 
@@ -58,7 +58,7 @@ left = np.array([0.5, 1, 2, 2.5])
 label = ["", "含む", "含まない", ""]
 height = np.array([0, loop_data[0][1], no_loop_data[0][1], 0])
 plt.bar(left, height, tick_label=label, align="center", width=0.7)
-plt.xlabel("有向閉路グラフを含む")
+plt.xlabel("全域サイクルを含む")
 plt.ylabel("平均完答率 [%]")
 fig.savefig('respondent_loop.png')
 
